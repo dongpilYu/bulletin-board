@@ -50,12 +50,12 @@
 
             </form>
 
-            <a href="/coco/main"><button class="ui fluid large teal submit button">뒤로가기</button></a>
+            <a href="main.html"><button class="ui fluid large teal submit button">뒤로가기</button></a>
         </div>
     </div>
     <!-- js 가져오기 -->
-    <script src="/coco/resources/jquery3.3.1.min.js"></script>
-    <script src="/coco/resources/semantic.min.js"></script>
+    <script src="jquery3.3.1.min.js"></script>
+    <script src="semantic.min.js"></script>
     <script>
         $(document).ready(function() {
             $("#write_bbs").click(function() {
@@ -74,21 +74,21 @@
 
                 $.ajax({
                     type: "post",
-                    url: "write_bbs",
+                    url: "/write_bbs",
                     data: json,
                     success: function(data) {
                         switch (Number(data)) {
                             case -1:
 								alert("로그인 후 이용해주세요.");
-								window.location.href = "/coco";
+								window.location.href = "/";
                                 break;
                             case 0:
 								alert("정상적으로 등록이 되었습니다.");
-								window.location.href = "/coco/main";
+								window.location.href = "main.html";
                                 break;
 
                             default:
-                            	alert("알수없는 오류가 발생 했습니다.[Error Code : " + Number(data) + "]");
+                            	alert("알 수 없는 오류가 발생 했습니다.[Error Code : " + Number(data) + "]");
                                 break;
                         }
                     },
